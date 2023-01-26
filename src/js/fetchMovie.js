@@ -9,10 +9,9 @@ const movieApi = new MovieAPI();
 
 //? Variables
 
-const {
+export const {
   btnHome,
   searchForm,
-  jsSearchPagin,
   gallery,
   inputValue,
   notSearchResult,

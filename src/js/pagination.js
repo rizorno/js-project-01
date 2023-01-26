@@ -8,6 +8,7 @@ import { paginLibraryW } from './fetchMovie.js';
 import { paginLibraryQ } from './fetchMovie.js';
 import { onSubmitSearchForm } from './fetchMovie.js';
 import { paginationSearch } from './fetchMovie.js';
+
 // import { MovieApi } from './movieAPI.js';
 
 // const searchMovieApi = new MovieAPI();
@@ -176,6 +177,7 @@ optionsLibraryQueue.totalItems = queueTotalItemsLS();
 
 //? Pagination the pages 'Home' and 'Library'
 
+const searchForm = document.querySelector('.form-search');
 const currentPageHome = document.querySelector("[name='home']");
 const currentPageLibrary = document.querySelector("[name='library']");
 const btnWatched = document.querySelector('[name="watched-header"]');
@@ -194,7 +196,7 @@ function paginationOnPage() {
       onStartPage(e.page);
     });
     // When loading the search form on the page 'Home'
-    jsSearchPagin.addEventListener('submit', e => {
+    searchForm.addEventListener('submit', e => {
       const paginationSearchForm = new Pagination(container, optionsSearch);
       paginationSearchForm.on('afterMove', e => {
         paginationSearch(e.page);
