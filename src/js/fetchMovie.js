@@ -96,7 +96,7 @@ checkCurrentPage();
 export function checkCurrentPage() {
   if (currentPageLibrary.classList.contains('current') === false) {
     onStartPage();
-    searchForm.addEventListener('submit', onSubmitSearchForm, searchPageHomeLS);
+    searchForm.addEventListener('submit', onSubmitSearchForm);
   } else {
     onLibraryPage();
     btnHeader.addEventListener('click', btnRender);
