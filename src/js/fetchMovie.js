@@ -102,7 +102,8 @@ checkCurrentPage();
 export function checkCurrentPage() {
   if (currentPageHome.classList.contains('current-home') === true) {
     onStartPage();
-    searchForm.addEventListener('submit', onSubmitSearchForm);
+    window.addEventListener('submit', onSubmitSearchForm);
+    //  searchForm.addEventListener('submit', onSubmitSearchForm);
     return;
   } else if (currentPageLibrary.classList.contains('current') === true) {
     onLibraryPage();
