@@ -99,9 +99,12 @@ export function checkCurrentPage() {
   if (currentPageHome.classList.contains('current-home') === true) {
     onStartPage();
     searchForm.addEventListener('submit', onSubmitSearchForm);
-  } else {
+    return;
+  }
+  if (currentPageLibrary.classList.contains('current') === true) {
     onLibraryPage();
     btnHeader.addEventListener('click', btnRender);
+    return;
   }
 }
 
