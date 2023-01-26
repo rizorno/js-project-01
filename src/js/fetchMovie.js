@@ -5,7 +5,7 @@ import Pagination from 'tui-pagination';
 import { container } from './pagination.js';
 import { optionsHome } from './pagination.js';
 import { optionsSearch } from './pagination.js';
-// import './pagination.js';
+
 // import { searchPageHomeLS } from './pagination.js';
 
 //? Creating example of class 'MovieAppi'
@@ -138,6 +138,8 @@ export async function onStartPage(page) {
   }
 }
 
+//? Pagination on the page 'Home'
+
 export async function paginationStartPage(page) {
   page = page || 1;
 
@@ -162,14 +164,12 @@ let searchQuery = '';
 export async function onSubmitSearchForm(e) {
   e.preventDefault();
   searchQuery = inputValue.value;
-  //   currentPage = 1;
 
   if (searchQuery === '') {
     return;
   }
 
   const response = await movieApi.fetchMovieKeyword(searchQuery);
-  //   save('search', response['total_pages']);
 
   try {
     if (response['total_results'] === 0) {
@@ -204,9 +204,7 @@ export async function paginationSearch(page) {
 
   try {
     if (response['total_results'] > 0) {
-      //  save('search', response);
       gallery.innerHTML = '';
-      // renderCardMovieHome(load('search'));
       renderCardMovieHome(response);
     } else {
       return;

@@ -8,11 +8,6 @@ import { paginLibraryW } from './fetchMovie.js';
 import { paginLibraryQ } from './fetchMovie.js';
 import { onSubmitSearchForm } from './fetchMovie.js';
 import { paginationSearch } from './fetchMovie.js';
-import './fetchMovie.js';
-
-// import { MovieApi } from './movieAPI.js';
-
-// const searchMovieApi = new MovieAPI();
 
 export const container = document.getElementById('pagination');
 
@@ -27,23 +22,23 @@ export let optionsHome = {
   usageStatistics: false, // Not send the hostname to google analytics.
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
-  template: {
-    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-    currentPage:
-      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-    moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</a>',
-    disabledMoveButton:
-      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</span>',
-    moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-      '<span class="tui-ico-ellip">...</span>' +
-      '</a>',
-  },
+  //   template: {
+  //     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+  //     currentPage:
+  //       '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+  //     moveButton:
+  //       '<a href="#" class="tui-page-btn tui-{{type}}">' +
+  //       '<span class="tui-ico-{{type}}">{{type}}</span>' +
+  //       '</a>',
+  //     disabledMoveButton:
+  //       '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+  //       '<span class="tui-ico-{{type}}">{{type}}</span>' +
+  //       '</span>',
+  //     moreButton:
+  //       '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+  //       '<span class="tui-ico-ellip">...</span>' +
+  //       '</a>',
+  //   },
 };
 
 //? Options for the searching on the page 'Home'
@@ -59,23 +54,23 @@ export let optionsSearch = {
   usageStatistics: false,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
-  template: {
-    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-    currentPage:
-      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-    moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</a>',
-    disabledMoveButton:
-      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</span>',
-    moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-      '<span class="tui-ico-ellip">...</span>' +
-      '</a>',
-  },
+  //   template: {
+  //     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+  //     currentPage:
+  //       '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+  //     moveButton:
+  //       '<a href="#" class="tui-page-btn tui-{{type}}">' +
+  //       '<span class="tui-ico-{{type}}">{{type}}</span>' +
+  //       '</a>',
+  //     disabledMoveButton:
+  //       '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+  //       '<span class="tui-ico-{{type}}">{{type}}</span>' +
+  //       '</span>',
+  //     moreButton:
+  //       '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+  //       '<span class="tui-ico-ellip">...</span>' +
+  //       '</a>',
+  //   },
 };
 
 // export async function searchPageHomeLS() {
@@ -84,12 +79,10 @@ export let optionsSearch = {
 //     const searchData = await onSubmitSearchForm();
 //     const totalItems = await load('search');
 //     return totalItems;
-//     //  return searchData;
 //   } catch (error) {
 //     console.log(error);
 //   }
 // }
-
 // optionsSearch.totalItems = searchPageHomeLS();
 
 //? Options for page 'Library'
@@ -103,23 +96,23 @@ export const optionsLibraryWatched = {
   usageStatistics: false,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
-  template: {
-    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-    currentPage:
-      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-    moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</a>',
-    disabledMoveButton:
-      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</span>',
-    moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-      '<span class="tui-ico-ellip">...</span>' +
-      '</a>',
-  },
+  //   template: {
+  //     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+  //     currentPage:
+  //       '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+  //     moveButton:
+  //       '<a href="#" class="tui-page-btn tui-{{type}}">' +
+  //       '<span class="tui-ico-{{type}}">{{type}}</span>' +
+  //       '</a>',
+  //     disabledMoveButton:
+  //       '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+  //       '<span class="tui-ico-{{type}}">{{type}}</span>' +
+  //       '</span>',
+  //     moreButton:
+  //       '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+  //       '<span class="tui-ico-ellip">...</span>' +
+  //       '</a>',
+  //   },
 };
 
 export function watchedTotalItemsLS() {
@@ -141,23 +134,23 @@ export const optionsLibraryQueue = {
   usageStatistics: false,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
-  template: {
-    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-    currentPage:
-      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-    moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</a>',
-    disabledMoveButton:
-      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</span>',
-    moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-      '<span class="tui-ico-ellip">...</span>' +
-      '</a>',
-  },
+  //   template: {
+  //     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+  //     currentPage:
+  //       '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+  //     moveButton:
+  //       '<a href="#" class="tui-page-btn tui-{{type}}">' +
+  //       '<span class="tui-ico-{{type}}">{{type}}</span>' +
+  //       '</a>',
+  //     disabledMoveButton:
+  //       '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+  //       '<span class="tui-ico-{{type}}">{{type}}</span>' +
+  //       '</span>',
+  //     moreButton:
+  //       '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+  //       '<span class="tui-ico-ellip">...</span>' +
+  //       '</a>',
+  //   },
 };
 
 export function queueTotalItemsLS() {
@@ -171,7 +164,6 @@ optionsLibraryQueue.totalItems = queueTotalItemsLS();
 
 //? Pagination the pages 'Home' and 'Library'
 
-const searchForm = document.querySelector('.form-search');
 const currentPageHome = document.querySelector("[name='home']");
 const currentPageLibrary = document.querySelector("[name='library']");
 const btnWatched = document.querySelector('[name="watched-header"]');
@@ -183,27 +175,23 @@ paginationOnPage();
 function paginationOnPage() {
   //   Pagination on the page 'Home'
 
-  //   if (currentPageHome.classList.contains('current-home') === true) {
+  //  if (currentPageHome.classList.contains('current-home') === true) {
   // When loading the page 'Home'
 
-  //  const paginationHome = new Pagination(container, optionsHome);
-  //  paginationHome.on('afterMove', e => {
-  //    onStartPage(e.page);
-  //  });
+  // const paginationHome = new Pagination(container, optionsHome);
+  // paginationHome.on('afterMove', e => {
+  //   onStartPage(e.page);
+  // });
   // When loading the search form on the page 'Home'
 
+  // searchForm.addEventListener('submit', e => {
   //   const paginationSearchForm = new Pagination(container, optionsSearch);
   //   paginationSearchForm.on('afterMove', e => {
   //     paginationSearch(e.page);
   //   });
-  //  searchForm.addEventListener('submit', e => {
-  //    const paginationSearchForm = new Pagination(container, optionsSearch);
-  //    paginationSearchForm.on('afterMove', e => {
-  //      paginationSearch(e.page);
-  //    });
-  //  });
-  //     return;
-  //   }
+  // });
+  //    return;
+  //  }
 
   //   Pagination on the page 'Library'
 
@@ -285,7 +273,7 @@ function paginationOnPage() {
       }
       if (
         !btnQueue.classList.contains('js-btn-header') &&
-        load('queue').length === false
+        Boolean(load('queue')) === false
       ) {
         del('queue');
         return;
