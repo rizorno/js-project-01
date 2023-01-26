@@ -22,6 +22,7 @@ let optionsHome = {
   itemsPerPage: 20, // Number of items to draw per page
   visiblePages: 5, // Number of pages to display
   page: 1, // Current page to display
+  currentPage: 1,
   centerAlign: false, // Whether the page is moved to centered or not
   usageStatistics: false, // Not send the hostname to google analytics.
   firstItemClassName: 'tui-first-child',
@@ -54,6 +55,7 @@ let optionsSearch = {
   itemsPerPage: 20,
   visiblePages: 5,
   page: 1,
+  currentPage: 1,
   centerAlign: false,
   usageStatistics: false,
   firstItemClassName: 'tui-first-child',
@@ -98,6 +100,7 @@ export const optionsLibraryWatched = {
   itemsPerPage: 9,
   visiblePages: 3,
   page: 1,
+  currentPage: 1,
   centerAlign: false,
   usageStatistics: false,
   firstItemClassName: 'tui-first-child',
@@ -135,6 +138,7 @@ export const optionsLibraryQueue = {
   itemsPerPage: 9,
   visiblePages: 3,
   page: 1,
+  currentPage: 1,
   centerAlign: false,
   usageStatistics: false,
   firstItemClassName: 'tui-first-child',
