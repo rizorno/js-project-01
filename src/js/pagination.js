@@ -33,6 +33,7 @@ const jsSearchPagin = document.querySelector('.js-search');
 
 let optionsSearch = {
   totalItems: 100,
+  //   totalItems: searchPageHomeLS(),
   itemsPerPage: 20,
   visiblePages: 5,
   page: 1,
@@ -45,8 +46,9 @@ let optionsSearch = {
 // export async function searchPageHomeLS() {
 //   try {
 //     const searchData = await onSubmitSearchForm();
-//     optionsSearch.totalItems = searchData;
+//     totalItems = searchData.json();
 //     console.log(searchData);
+//     return searchData;
 //   } catch (error) {
 //     console.log(error);
 //   }
