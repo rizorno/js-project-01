@@ -1,7 +1,10 @@
 import { del, load, save } from './LS.js';
 import { genresData } from './genresData.js';
 import { MovieAPI } from './movieAPI.js';
-import './pagination.js';
+import Pagination from 'tui-pagination';
+import { container } from './pagination.js';
+import { optionsSearch } from './pagination.js';
+// import './pagination.js';
 // import { searchPageHomeLS } from './pagination.js';
 
 //? Creating example of class 'MovieAppi'
@@ -100,8 +103,7 @@ export function checkCurrentPage() {
     onStartPage();
     searchForm.addEventListener('submit', onSubmitSearchForm);
     return;
-  }
-  if (currentPageLibrary.classList.contains('current') === true) {
+  } else if (currentPageLibrary.classList.contains('current') === true) {
     onLibraryPage();
     btnHeader.addEventListener('click', btnRender);
     return;
@@ -159,6 +161,11 @@ export async function onSubmitSearchForm(e) {
       gallery.innerHTML = '';
       renderCardMovieHome(response);
       searchForm.reset();
+
+      const paginationSearchForm = new Pagination(container, optionsSearch);
+      paginationSearchForm.on('afterMove', e => {
+        paginationSearch(e.page);
+      });
     } else {
       return;
     }

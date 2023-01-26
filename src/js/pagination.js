@@ -51,7 +51,7 @@ let optionsHome = {
 
 const jsSearchPagin = document.querySelector('.js-search');
 
-let optionsSearch = {
+export let optionsSearch = {
   totalItems: 100,
   itemsPerPage: 20,
   visiblePages: 5,
@@ -188,15 +188,17 @@ function paginationOnPage() {
 
   if (currentPageHome.classList.contains('current-home') === true) {
     // When loading the page 'Home'
+
     const paginationHome = new Pagination(container, optionsHome);
     paginationHome.on('afterMove', e => {
       onStartPage(e.page);
     });
     // When loading the search form on the page 'Home'
-    const paginationSearchForm = new Pagination(container, optionsSearch);
-    paginationSearchForm.on('afterMove', e => {
-      paginationSearch(e.page);
-    });
+
+    //  const paginationSearchForm = new Pagination(container, optionsSearch);
+    //  paginationSearchForm.on('afterMove', e => {
+    //    paginationSearch(e.page);
+    //  });
     //  searchForm.addEventListener('submit', e => {
     //    const paginationSearchForm = new Pagination(container, optionsSearch);
     //    paginationSearchForm.on('afterMove', e => {
