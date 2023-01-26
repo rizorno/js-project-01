@@ -30,19 +30,17 @@ let optionsHome = {
     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
     currentPage:
       '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-    currentPage:
-      '<a href="#" class="tui-page-btn tui-is-selected">{{page}}</a>',
     moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}} hide-{{type}}">' +
-      `<svg class="tui-ico-{{type}}" width="16" height="16"><use href="./images/icons.svg#icon-arrow-{{type}}"></use></svg>` +
+      '<a href="#" class="tui-page-btn tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
       '</a>',
     disabledMoveButton:
       '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
       '<span class="tui-ico-{{type}}">{{type}}</span>' +
       '</span>',
     moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip change-{{type}}">' +
-      `<svg class="tui-ico-ellip" width="14" height="14"><use href="./images/icons.svg#icon-dots"></use></svg>` +
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
       '</a>',
   },
 };
@@ -64,19 +62,17 @@ let optionsSearch = {
     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
     currentPage:
       '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-    currentPage:
-      '<a href="#" class="tui-page-btn tui-is-selected">{{page}}</a>',
     moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}} hide-{{type}}">' +
-      `<svg class="tui-ico-{{type}}" width="16" height="16"><use href="./images/icons.svg#icon-arrow-{{type}}"></use></svg>` +
+      '<a href="#" class="tui-page-btn tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
       '</a>',
     disabledMoveButton:
       '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
       '<span class="tui-ico-{{type}}">{{type}}</span>' +
       '</span>',
     moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip change-{{type}}">' +
-      `<svg class="tui-ico-ellip" width="14" height="14"><use href="./images/icons.svg#icon-dots"></use></svg>` +
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
       '</a>',
   },
 };
@@ -110,19 +106,17 @@ export const optionsLibraryWatched = {
     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
     currentPage:
       '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-    currentPage:
-      '<a href="#" class="tui-page-btn tui-is-selected">{{page}}</a>',
     moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}} hide-{{type}}">' +
-      `<svg class="tui-ico-{{type}}" width="16" height="16"><use href="./images/icons.svg#icon-arrow-{{type}}"></use></svg>` +
+      '<a href="#" class="tui-page-btn tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
       '</a>',
     disabledMoveButton:
       '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
       '<span class="tui-ico-{{type}}">{{type}}</span>' +
       '</span>',
     moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip change-{{type}}">' +
-      `<svg class="tui-ico-ellip" width="14" height="14"><use href="./images/icons.svg#icon-dots"></use></svg>` +
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
       '</a>',
   },
 };
@@ -149,19 +143,17 @@ export const optionsLibraryQueue = {
     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
     currentPage:
       '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-    currentPage:
-      '<a href="#" class="tui-page-btn tui-is-selected">{{page}}</a>',
     moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}} hide-{{type}}">' +
-      `<svg class="tui-ico-{{type}}" width="16" height="16"><use href="./images/icons.svg#icon-arrow-{{type}}"></use></svg>` +
+      '<a href="#" class="tui-page-btn tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
       '</a>',
     disabledMoveButton:
       '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
       '<span class="tui-ico-{{type}}">{{type}}</span>' +
       '</span>',
     moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip change-{{type}}">' +
-      `<svg class="tui-ico-ellip" width="14" height="14"><use href="./images/icons.svg#icon-dots"></use></svg>` +
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
       '</a>',
   },
 };
