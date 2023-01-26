@@ -17,6 +17,7 @@ const {
   inputValue,
   notSearchResult,
   errorServer,
+  currentPageHome,
   currentPageLibrary,
   btnHeader,
   btnWatched,
@@ -29,6 +30,7 @@ const {
   inputValue: document.querySelector("[name='search']"),
   notSearchResult: document.querySelector('.text-hidden'),
   errorServer: document.querySelector('.error-server'),
+  currentPageHome: document.querySelector("[name='home']"),
   currentPageLibrary: document.querySelector("[name='library']"),
   btnHeader: document.querySelector('.js-box-btn'),
   btnWatched: document.querySelector('[name="watched-header"]'),
@@ -94,10 +96,10 @@ export function renderCardMovieLibrary(arr) {
 checkCurrentPage();
 
 export function checkCurrentPage() {
-  if (currentPageLibrary.classList.contains('current') === false) {
+  if (currentPageHome.classList.contains('current-home') === true) {
     onStartPage();
     searchForm.addEventListener('submit', onSubmitSearchForm);
-  } else {
+  } else if (currentPageLibrary.classList.contains('current-home') === true) {
     onLibraryPage();
     btnHeader.addEventListener('click', btnRender);
   }

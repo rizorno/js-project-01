@@ -22,6 +22,7 @@ const {
   btnWatched,
   btnQueue,
   btnYoutub,
+  currentPageHome,
   currentPageLibrary,
 } = {
   openModal: document.querySelector('[data-modal-open]'),
@@ -36,6 +37,7 @@ const {
   btnWatched: document.querySelector('.js-w'),
   btnQueue: document.querySelector('.js-q'),
   btnYoutub: document.querySelector('.js-y'),
+  currentPageHome: document.querySelector("[name='home']"),
   currentPageLibrary: document.querySelector("[name='library']"),
 };
 
@@ -341,13 +343,26 @@ function saveQueueToLS() {
 //? Delete data from Local Storage
 
 function removeWatchedFromLS() {
-  let movieIndex = dataWLS.findIndex(w => w.id === Number(movieID));
+  console.log(dataWLS);
+  let movieIndex = dataWLS.findIndex(w => {
+    if (Boolean(w.id === Number(movieID)) === false) {
+      w.id = 0;
+    } else {
+      w.id === Number(movieID);
+    }
+  });
   dataWLS.splice(movieIndex, 1);
   save('watched', dataWLS);
 }
 
 function removeQueueFromLS() {
-  let movieIndex = dataQLS.findIndex(w => w.id === Number(movieID));
+  let movieIndex = dataQLS.findIndex(w => {
+    if (Boolean(w.id === Number(movieID)) === false) {
+      w.id = 0;
+    } else {
+      w.id === Number(movieID);
+    }
+  });
   dataQLS.splice(movieIndex, 1);
   save('queue', dataQLS);
 }
