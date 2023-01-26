@@ -70,10 +70,10 @@ export async function modalCard(e) {
 
   movieVelue = movie;
 
-  if (currentPageLibrary.classList.contains('current') === true) {
-    currentLengthDataWLS = load('watched').length;
-    currentLengthDataQLS = load('queue').length;
-  }
+  //   if (currentPageLibrary.classList.contains('current') === true) {
+  //     currentLengthDataWLS = load('watched').length;
+  //     currentLengthDataQLS = load('queue').length;
+  //   }
 
   return;
 }
