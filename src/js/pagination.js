@@ -8,6 +8,7 @@ import { paginLibraryW } from './fetchMovie.js';
 import { paginLibraryQ } from './fetchMovie.js';
 import { onSubmitSearchForm } from './fetchMovie.js';
 import { paginationSearch } from './fetchMovie.js';
+import './fetchMovie.js';
 
 // import { MovieApi } from './movieAPI.js';
 
@@ -192,12 +193,16 @@ function paginationOnPage() {
       onStartPage(e.page);
     });
     // When loading the search form on the page 'Home'
-    searchForm.addEventListener('submit', e => {
-      const paginationSearchForm = new Pagination(container, optionsSearch);
-      paginationSearchForm.on('afterMove', e => {
-        paginationSearch(e.page);
-      });
+    const paginationSearchForm = new Pagination(container, optionsSearch);
+    paginationSearchForm.on('afterMove', e => {
+      paginationSearch(e.page);
     });
+    //  searchForm.addEventListener('submit', e => {
+    //    const paginationSearchForm = new Pagination(container, optionsSearch);
+    //    paginationSearchForm.on('afterMove', e => {
+    //      paginationSearch(e.page);
+    //    });
+    //  });
     return;
   }
 

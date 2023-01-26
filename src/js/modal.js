@@ -2,6 +2,7 @@ import { save, load } from './LS.js';
 import { MovieAPI } from './movieAPI.js';
 import { renderCardMovieLibrary } from './fetchMovie.js';
 import spriteUrl from '/src/images/icons.svg';
+import './pagination.js';
 
 //? Creating example of class 'MovieAppi'
 
