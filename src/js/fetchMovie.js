@@ -141,6 +141,7 @@ export async function onSubmitSearchForm(e) {
   }
 
   const response = await movieApi.fetchMovieKeyword(searchQuery);
+  //   save('search', response['total_pages']);
 
   try {
     if (response['total_results'] === 0) {
@@ -148,14 +149,11 @@ export async function onSubmitSearchForm(e) {
       return;
     }
     if (response['total_results'] > 0) {
-      // save('search', response);
+      // save('search', response['total_pages']);
       notSearchResult.classList.add('is-hidden-text');
       gallery.innerHTML = '';
-      // renderCardMovieHome(load('search'));
       renderCardMovieHome(response);
       searchForm.reset();
-      const searchData = response['total_pages'];
-      return searchData;
     } else {
       return;
     }
@@ -163,8 +161,6 @@ export async function onSubmitSearchForm(e) {
   } catch (error) {
     console.log(error);
   }
-
-  return user;
 }
 
 //? Pagination the search form on the page 'Home'
@@ -180,8 +176,6 @@ export async function paginationSearch(page) {
       gallery.innerHTML = '';
       // renderCardMovieHome(load('search'));
       renderCardMovieHome(response);
-      const searchData = response;
-      return searchData;
     } else {
       return;
     }

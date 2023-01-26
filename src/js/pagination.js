@@ -8,9 +8,9 @@ import { paginLibraryW } from './fetchMovie.js';
 import { paginLibraryQ } from './fetchMovie.js';
 import { onSubmitSearchForm } from './fetchMovie.js';
 import { paginationSearch } from './fetchMovie.js';
-import { MovieAPI } from './movieAPI.js';
+// import { MovieApi } from './movieAPI.js';
 
-const searchMovieApi = new MovieAPI();
+// const searchMovieApi = new MovieAPI();
 
 export const container = document.getElementById('pagination');
 
@@ -33,7 +33,6 @@ const jsSearchPagin = document.querySelector('.js-search');
 
 let optionsSearch = {
   totalItems: 100,
-  //   totalItems: searchPageHomeLS(),
   itemsPerPage: 20,
   visiblePages: 5,
   page: 1,
@@ -44,17 +43,18 @@ let optionsSearch = {
 };
 
 // export async function searchPageHomeLS() {
+//   del('search');
 //   try {
 //     const searchData = await onSubmitSearchForm();
-//     totalItems = searchData.json();
-//     console.log(searchData);
-//     return searchData;
+//     const totalItems = await load('search');
+//     return totalItems;
+//     //  return searchData;
 //   } catch (error) {
 //     console.log(error);
 //   }
 // }
+
 // optionsSearch.totalItems = searchPageHomeLS();
-// optionsSearch.totalItems = await onSubmitSearchForm();
 
 //? Options for page 'Library'
 
@@ -103,7 +103,6 @@ optionsLibraryQueue.totalItems = queueTotalItemsLS();
 const currentPageLibrary = document.querySelector("[name='library']");
 const btnWatched = document.querySelector('[name="watched-header"]');
 const btnQueue = document.querySelector('[name="queue-header"]');
-// const jsSearchPagin = document.querySelector('.js-search');
 let params;
 
 paginationOnPage();
@@ -119,7 +118,6 @@ function paginationOnPage() {
     });
     // When loading the search form on the page 'Home'
     jsSearchPagin.addEventListener('submit', e => {
-      console.log(optionsSearch);
       const paginationSearchForm = new Pagination(container, optionsSearch);
       paginationSearchForm.on('afterMove', e => {
         paginationSearch(e.page);
