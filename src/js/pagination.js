@@ -18,7 +18,7 @@ export const container = document.getElementById('pagination');
 
 //? Options for the starting on the page 'Home'
 
-let optionsHome = {
+export let optionsHome = {
   totalItems: 1000, // Total number of items
   itemsPerPage: 20, // Number of items to draw per page
   visiblePages: 5, // Number of pages to display
@@ -186,27 +186,27 @@ paginationOnPage();
 function paginationOnPage() {
   //   Pagination on the page 'Home'
 
-  if (currentPageHome.classList.contains('current-home') === true) {
-    // When loading the page 'Home'
+  //   if (currentPageHome.classList.contains('current-home') === true) {
+  // When loading the page 'Home'
 
-    const paginationHome = new Pagination(container, optionsHome);
-    paginationHome.on('afterMove', e => {
-      onStartPage(e.page);
-    });
-    // When loading the search form on the page 'Home'
+  //  const paginationHome = new Pagination(container, optionsHome);
+  //  paginationHome.on('afterMove', e => {
+  //    onStartPage(e.page);
+  //  });
+  // When loading the search form on the page 'Home'
 
-    //  const paginationSearchForm = new Pagination(container, optionsSearch);
-    //  paginationSearchForm.on('afterMove', e => {
-    //    paginationSearch(e.page);
-    //  });
-    //  searchForm.addEventListener('submit', e => {
-    //    const paginationSearchForm = new Pagination(container, optionsSearch);
-    //    paginationSearchForm.on('afterMove', e => {
-    //      paginationSearch(e.page);
-    //    });
-    //  });
-    return;
-  }
+  //   const paginationSearchForm = new Pagination(container, optionsSearch);
+  //   paginationSearchForm.on('afterMove', e => {
+  //     paginationSearch(e.page);
+  //   });
+  //  searchForm.addEventListener('submit', e => {
+  //    const paginationSearchForm = new Pagination(container, optionsSearch);
+  //    paginationSearchForm.on('afterMove', e => {
+  //      paginationSearch(e.page);
+  //    });
+  //  });
+  //     return;
+  //   }
 
   //   Pagination on the page 'Library'
 

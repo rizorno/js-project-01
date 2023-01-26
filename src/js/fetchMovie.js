@@ -3,6 +3,7 @@ import { genresData } from './genresData.js';
 import { MovieAPI } from './movieAPI.js';
 import Pagination from 'tui-pagination';
 import { container } from './pagination.js';
+import { optionsHome } from './pagination.js';
 import { optionsSearch } from './pagination.js';
 // import './pagination.js';
 // import { searchPageHomeLS } from './pagination.js';
@@ -126,6 +127,30 @@ export async function onStartPage(page) {
       // renderCardMovieHome(load('home-page'));
       renderCardMovieHome(response);
       searchForm.reset();
+
+      const paginationHome = new Pagination(container, optionsHome);
+      paginationHome.on('afterMove', e => {
+        paginationStartPage(e.page);
+      });
+    } else {
+      return;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function paginationStartPage(page) {
+  page = page || 1;
+
+  const response = await movieApi.fetchMovieTrending(page);
+
+  try {
+    if (response['total_results'] > 0) {
+      //  save('search', response);
+      gallery.innerHTML = '';
+      // renderCardMovieHome(load('search'));
+      renderCardMovieHome(response);
     } else {
       return;
     }
