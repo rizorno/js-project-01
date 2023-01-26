@@ -1,7 +1,7 @@
 import { save, load } from './LS.js';
 import { MovieAPI } from './movieAPI.js';
 import { renderCardMovieLibrary } from './fetchMovie.js';
-import spriteUrl from '../images/icons.svg';
+import spriteUrl from '/src/images/icons.svg';
 
 //? Creating example of class 'MovieAppi'
 
@@ -156,7 +156,7 @@ function cardTemplateModal({
     <button class="modal-btn js-q ${classJSQ}">Queue</button>
   </div>
   <button class="modal-btn modal-btn--youtub js-y ${classJSY}"><svg class="btn-close__icon" width="30" height="30">
-        <use href="${spriteUrl}icons.svg#icon-youtub"></use>
+        <use href="${spriteUrl}#icon-youtub"></use>
       </svg>YouTub
     </button>
 </div>`;
