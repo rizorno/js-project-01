@@ -1,0 +1,158 @@
+.modal-team {
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  transform: translate(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px 10px 10px;
+
+  text-align: center;
+  text-decoration: none;
+
+  width: 280px;
+
+  background-color: $background-premier;
+  border-radius: 15px;
+
+  @media screen and (min-width: 420px) and (max-width: 767px) {
+    top: 5%;
+    width: 360px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    top: 5%;
+    width: 500px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 620px;
+  }
+}
+
+.team-title {
+  display: flex;
+  align-items: center;
+
+  font-weight: 900;
+  font-size: 30px;
+
+  max-width: 600px;
+
+  margin: 0 auto;
+
+  transition: transform $transition;
+
+  color: #5ab152;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 40px;
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+
+  &--w {
+    color: #1e70c0;
+  }
+
+  &__deviz {
+    margin-bottom: 10px;
+    font-size: 14px;
+
+    border-top: 3px solid;
+    border-radius: 50%;
+    border-color: $color-orange;
+
+    padding-top: 10px;
+  }
+}
+
+.team-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  @media screen and (min-width: $tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    //  gap: 80px 90px;
+    //  grid-auto-flow: row;
+  }
+
+  @media screen and (min-width: $desktop) {
+    //  grid-template-columns: repeat(2, 1fr);
+    //  grid-template-rows: repeat(4, 1fr);
+    //  gap: 80px 90px;
+    //  grid-auto-flow: row;
+  }
+}
+
+.team-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 10px;
+
+  width: calc((100% - 80px) / 2);
+
+  @media screen and (min-width: 768px) {
+    width: calc((100% - 120px) / 3);
+  }
+
+  @media screen and (min-width: 1024px) {
+    margin: 20px;
+
+    width: calc((100% - 160px) / 3);
+  }
+}
+
+.team-image {
+  margin-bottom: 10px;
+
+  width: 100%;
+
+  border-radius: 50%;
+  box-shadow: 5px 5px 11px -2px black;
+}
+
+.team-name {
+  margin-bottom: 5px;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: $font-family-premier;
+}
+
+.team-role {
+  font-family: $font-family-premier;
+  font-size: 14px;
+
+  @media screen and (max-width: ($tablet - 1)) {
+    font-size: 14px;
+  }
+
+  color: $color-orange;
+}
+
+.team-git {
+  position: absolute;
+  cursor: pointer;
+  right: -10%;
+
+  transform: scale(1);
+  transition: transform $transition;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.5);
+  }
+}

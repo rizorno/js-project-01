@@ -1,0 +1,23 @@
+body {
+  background-color: $background-premier;
+  color: $color-black;
+
+  font-family: $font-family-premier;
+  font-size: 12px;
+}
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
