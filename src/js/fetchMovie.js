@@ -1,7 +1,7 @@
 import { del, load, save } from './LS.js';
 import { genresData } from './genresData.js';
 import { MovieAPI } from './movieAPI.js';
-import { searchPageHomeLS } from './pagination.js';
+// import { searchPageHomeLS } from './pagination.js';
 
 //? Creating example of class 'MovieAppi'
 
