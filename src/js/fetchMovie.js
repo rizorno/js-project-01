@@ -180,6 +180,8 @@ export async function paginationSearch(page) {
       gallery.innerHTML = '';
       // renderCardMovieHome(load('search'));
       renderCardMovieHome(response);
+      const searchData = response;
+      return searchData;
     } else {
       return;
     }
@@ -202,12 +204,10 @@ export function onLibraryPage(page) {
   if (load('watched') === undefined && load('queue') === undefined) {
     del('watched');
     del('queue');
-    console.log('pash1');
   } else if (
     Boolean(load('watched')) === false &&
     Boolean(load('queue')) === true
   ) {
-    console.log('hello-1');
     btnQueue.classList.add('js-btn-header');
     gallery.innerHTML = '';
     renderCardMovieLibrary(load('queue').slice(start, end));
@@ -215,7 +215,6 @@ export function onLibraryPage(page) {
     Boolean(load('watched')) === true &&
     Boolean(load('queue')) === false
   ) {
-    console.log('hello 2');
     btnWatched.classList.add('js-btn-header');
     gallery.innerHTML = '';
     renderCardMovieLibrary(load('watched').slice(start, end));
@@ -223,7 +222,6 @@ export function onLibraryPage(page) {
     Boolean(load('watched')) === true &&
     Boolean(load('queue')) === true
   ) {
-    console.log('hello 3');
     btnWatched.classList.add('js-btn-header');
     gallery.innerHTML = '';
     renderCardMovieLibrary(load('watched').slice(start, end));
@@ -241,7 +239,6 @@ export function paginLibraryW(page) {
 
   gallery.innerHTML = '';
   renderCardMovieLibrary(load('watched').slice(start, end));
-  console.log('pagin W');
   return;
 }
 
@@ -255,7 +252,6 @@ export function paginLibraryQ(page) {
 
   gallery.innerHTML = '';
   renderCardMovieLibrary(load('queue').slice(start, end));
-  console.log('pagin Q');
   return;
 }
 
@@ -264,13 +260,11 @@ export function paginLibraryQ(page) {
 export async function btnRender(e) {
   if (e.target.innerHTML === 'Watched') {
     if (Boolean(load('watched')) === false) {
-      console.log('r-w-1');
       return;
     } else if (
       Boolean(load('watched')) === true ||
       (Boolean(load('watched')) === true && Boolean(load('queue')) === false)
     ) {
-      console.log('r-w-2');
       document
         .querySelector('.js-btn-header')
         .classList.remove('js-btn-header');
@@ -281,13 +275,11 @@ export async function btnRender(e) {
     }
   } else if (e.target.innerHTML === 'Queue') {
     if (Boolean(load('queue')) === false) {
-      console.log('r-q-1');
       return;
     } else if (
       Boolean(load('queue')) === true ||
       (Boolean(load('queue')) === true && Boolean(load('watched')) === false)
     ) {
-      console.log('r-q-2');
       document
         .querySelector('.js-btn-header')
         .classList.remove('js-btn-header');
