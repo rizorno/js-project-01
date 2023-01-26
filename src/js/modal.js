@@ -343,7 +343,6 @@ function saveQueueToLS() {
 //? Delete data from Local Storage
 
 function removeWatchedFromLS() {
-  console.log(dataWLS);
   let movieIndex = dataWLS.findIndex(w => {
     if (Boolean(w.id === Number(movieID)) === false) {
       w.id = 0;
