@@ -100,6 +100,7 @@ optionsLibraryQueue.totalItems = queueTotalItemsLS();
 
 //? Pagination the pages 'Home' and 'Library'
 
+const currentPageHome = document.querySelector("[name='home']");
 const currentPageLibrary = document.querySelector("[name='library']");
 const btnWatched = document.querySelector('[name="watched-header"]');
 const btnQueue = document.querySelector('[name="queue-header"]');
@@ -110,7 +111,7 @@ paginationOnPage();
 function paginationOnPage() {
   //   Pagination on the page 'Home'
 
-  if (currentPageLibrary.classList.contains('current') === false) {
+  if (currentPageHome.classList.contains('current-home') === true) {
     // When loading the page 'Home'
     const paginationHome = new Pagination(container, optionsHome);
     paginationHome.on('afterMove', e => {
