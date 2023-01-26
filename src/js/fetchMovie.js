@@ -122,9 +122,7 @@ export async function onStartPage(page) {
       return;
     }
     if (response['total_results'] > 0) {
-      // save('home-page', response);
       gallery.innerHTML = '';
-      // renderCardMovieHome(load('home-page'));
       renderCardMovieHome(response);
       searchForm.reset();
 
@@ -147,9 +145,7 @@ export async function paginationStartPage(page) {
 
   try {
     if (response['total_results'] > 0) {
-      //  save('search', response);
       gallery.innerHTML = '';
-      // renderCardMovieHome(load('search'));
       renderCardMovieHome(response);
     } else {
       return;
@@ -166,7 +162,7 @@ let searchQuery = '';
 export async function onSubmitSearchForm(e) {
   e.preventDefault();
   searchQuery = inputValue.value;
-  currentPage = 1;
+  //   currentPage = 1;
 
   if (searchQuery === '') {
     return;
@@ -181,7 +177,6 @@ export async function onSubmitSearchForm(e) {
       return;
     }
     if (response['total_results'] > 0) {
-      // save('search', response['total_pages']);
       notSearchResult.classList.add('is-hidden-text');
       gallery.innerHTML = '';
       renderCardMovieHome(response);
