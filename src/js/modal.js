@@ -343,25 +343,13 @@ function saveQueueToLS() {
 //? Delete data from Local Storage
 
 function removeWatchedFromLS() {
-  let movieIndex = dataWLS.findIndex(w => {
-    if (Boolean(w.id === Number(movieID)) === false) {
-      w.id = 0;
-    } else {
-      w.id === Number(movieID);
-    }
-  });
+  let movieIndex = dataWLS.findIndex(w => w.id === Number(movieID));
   dataWLS.splice(movieIndex, 1);
   save('watched', dataWLS);
 }
 
 function removeQueueFromLS() {
-  let movieIndex = dataQLS.findIndex(w => {
-    if (Boolean(w.id === Number(movieID)) === false) {
-      w.id = 0;
-    } else {
-      w.id === Number(movieID);
-    }
-  });
+  let movieIndex = dataQLS.findIndex(w => w.id === Number(movieID));
   dataQLS.splice(movieIndex, 1);
   save('queue', dataQLS);
 }

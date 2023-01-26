@@ -99,7 +99,7 @@ export function checkCurrentPage() {
   if (currentPageHome.classList.contains('current-home') === true) {
     onStartPage();
     searchForm.addEventListener('submit', onSubmitSearchForm);
-  } else if (currentPageLibrary.classList.contains('current-home') === true) {
+  } else {
     onLibraryPage();
     btnHeader.addEventListener('click', btnRender);
   }
