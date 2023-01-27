@@ -16,13 +16,7 @@ const {
   modal,
   boxMovie,
   backdrop,
-  boxBtn,
   btnWatchedHeader,
-  btnQueueHeader,
-  btnWatched,
-  btnQueue,
-  btnYoutub,
-  currentPageHome,
   currentPageLibrary,
 } = {
   openModal: document.querySelector('[data-modal-open]'),
@@ -31,13 +25,7 @@ const {
   modal: document.querySelector('[data-modal]'),
   boxMovie: document.querySelector('.box-wrapper-flex'),
   backdrop: document.querySelector('.backdrop'),
-  boxBtn: document.querySelector('.modal-box-btn'),
   btnWatchedHeader: document.querySelector('[name="watched-header"]'),
-  btnQueueHeader: document.querySelector('[name="queue-header"]'),
-  btnWatched: document.querySelector('.js-w'),
-  btnQueue: document.querySelector('.js-q'),
-  btnYoutub: document.querySelector('.js-y'),
-  currentPageHome: document.querySelector("[name='home']"),
   currentPageLibrary: document.querySelector("[name='library']"),
 };
 
@@ -69,12 +57,6 @@ export async function modalCard(e) {
   backdrop.addEventListener('click', closeModalClick);
 
   movieVelue = movie;
-
-  //   if (currentPageLibrary.classList.contains('current') === true) {
-  //     currentLengthDataWLS = load('watched').length;
-  //     currentLengthDataQLS = load('queue').length;
-  //   }
-
   return;
 }
 
@@ -170,7 +152,7 @@ closeModalBtn.addEventListener('click', closeModal);
 
 //? Close modal card with the button 'Close'
 
-function closeModal(e) {
+function closeModal() {
   modal.classList.toggle('is-hidden');
   boxMovie.innerHTML = '';
   window.removeEventListener('click', modalBtnClass);
@@ -395,7 +377,6 @@ async function playTeaser(e) {
 function cardTemplateYouTub({ key }) {
   return `<div class="video-modal__iframe">
       <iframe
-       
         src="https://www.youtube.com/embed/${key}?showinfo=0"
         title="Teaser on YouTube"
         frameborder="0" allowfullscreen

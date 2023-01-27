@@ -1,12 +1,11 @@
+import Pagination from 'tui-pagination';
+
+import { MovieAPI } from './movieAPI.js';
 import { del, load, save } from './LS.js';
 import { genresData } from './genresData.js';
-import { MovieAPI } from './movieAPI.js';
-import Pagination from 'tui-pagination';
 import { container } from './pagination.js';
 import { optionsHome } from './pagination.js';
 import { optionsSearch } from './pagination.js';
-
-// import { searchPageHomeLS } from './pagination.js';
 
 //? Creating example of class 'MovieAppi'
 
@@ -15,7 +14,6 @@ const movieApi = new MovieAPI();
 //? Variables
 
 export const {
-  btnHome,
   searchForm,
   gallery,
   inputValue,
@@ -26,9 +24,7 @@ export const {
   btnHeader,
   btnWatched,
   btnQueue,
-  endCollectionText,
 } = {
-  btnHome: document.querySelector('[name="home"]'),
   searchForm: document.querySelector('.form-search'),
   gallery: document.querySelector('.content__list'),
   inputValue: document.querySelector("[name='search']"),
@@ -39,7 +35,6 @@ export const {
   btnHeader: document.querySelector('.js-box-btn'),
   btnWatched: document.querySelector('[name="watched-header"]'),
   btnQueue: document.querySelector('[name="queue-header"]'),
-  endCollectionText: document.querySelector('.end-collection-text'),
 };
 
 //? Card template for rendering content on the page
@@ -111,10 +106,10 @@ export function checkCurrentPage() {
   }
 }
 
-//? When loading the page 'Home'
+//? Start. When loading the page 'Home'
 
-export async function onStartPage(page) {
-  const response = await movieApi.fetchMovieTrending(page);
+export async function onStartPage() {
+  const response = await movieApi.fetchMovieTrending();
 
   try {
     if (response['total_results'] === 0) {
@@ -125,6 +120,8 @@ export async function onStartPage(page) {
       gallery.innerHTML = '';
       renderCardMovieHome(response);
       searchForm.reset();
+
+      //* Pagination when loading the page
 
       const paginationHome = new Pagination(container, optionsHome);
       paginationHome.on('afterMove', e => {
@@ -138,7 +135,7 @@ export async function onStartPage(page) {
   }
 }
 
-//? Pagination on the page 'Home'
+//? Pagination on the page 'Home' when going to the next page
 
 export async function paginationStartPage(page) {
   page = page || 1;
@@ -177,11 +174,13 @@ export async function onSubmitSearchForm(e) {
       return;
     }
     if (response['total_results'] > 0) {
+      save('search', response.total_pages);
       notSearchResult.classList.add('is-hidden-text');
       gallery.innerHTML = '';
       renderCardMovieHome(response);
       searchForm.reset();
-      save('search', response.total_pages);
+
+      //* Pagination when loading results
 
       setTimeout(() => {
         optionsSearch.totalItems = load('search');
@@ -199,7 +198,7 @@ export async function onSubmitSearchForm(e) {
   }
 }
 
-//? Pagination the search form on the page 'Home'
+//? Pagination the search form on the page 'Home' when going to the next page
 
 export async function paginationSearch(page) {
   page = page || 1;
@@ -218,11 +217,14 @@ export async function paginationSearch(page) {
   }
 }
 
-//? Pagination the page 'Library'
+//? Pagination on the page 'Library'
 
 //* When loading the page 'Library'
 
 export function onLibraryPage(page) {
+  // For cleaning Local Storage
+  del('search');
+
   // For pagination
   page = page || 1;
   const movieOnPage = 9;
