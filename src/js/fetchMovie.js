@@ -2,7 +2,7 @@ import Pagination from 'tui-pagination';
 
 import { MovieAPI } from './movieAPI.js';
 import { del, load, save } from './LS.js';
-import { genresData } from './genresData.js';
+// import { genresData } from './genresData.js';
 import { container } from './pagination.js';
 import { optionsHome } from './pagination.js';
 import { optionsSearch } from './pagination.js';
@@ -56,7 +56,7 @@ export function cardTemplateLibrary({
   }
 
   if (genre_ids) {
-    movieGenres = genresData
+    movieGenres = load('genres')[0] // solution #2 : genresData
       .filter(({ id }) => genre_ids.includes(id))
       .map(({ name }) => name)
       .join(', ');
@@ -110,6 +110,7 @@ export function checkCurrentPage() {
 
 export async function onStartPage() {
   const response = await movieApi.fetchMovieTrending();
+  const responseGenres = await movieApi.fetchMGenres();
 
   try {
     if (response['total_results'] === 0) {
@@ -117,6 +118,7 @@ export async function onStartPage() {
       return;
     }
     if (response['total_results'] > 0) {
+      save('genres', [responseGenres.genres]); // solution #2 : not use
       gallery.innerHTML = '';
       renderCardMovieHome(response);
       searchForm.reset();

@@ -74,6 +74,24 @@ export class MovieAPI {
     }
   }
 
+  async fetchMGenres() {
+    try {
+      Loading.pulse({
+        svgColor: 'orange',
+      });
+      const response = await axios.get(`${BASE_URL}genre/movie/list`, {
+        params: {
+          api_key: API_KEY,
+          language: this.language,
+        },
+      });
+      Loading.remove();
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async fetchMovieYouTube() {
     try {
       Loading.pulse({

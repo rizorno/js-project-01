@@ -80,16 +80,48 @@ function cardTemplateModal({
 }) {
   let movieGenres;
 
+  //* Genres
+
   if (genres) {
     movieGenres = genres.map(({ name }) => name).join(', ');
   }
 
   if (genre_ids) {
-    movieGenres = genresData
+    movieGenres = load('genres')[0] // solution #2 : genresData
       .filter(({ id }) => genre_ids.includes(id))
       .map(({ name }) => name)
       .join(', ');
   }
+
+  //* Votes: round and separation of thousandths
+
+  vote_count = Math.round(vote_count);
+  let xVC = String(vote_count);
+  let sVC = xVC.split('');
+  let indexVC = xVC.length - 1;
+  let wVC = Math.floor(indexVC / 3);
+  for (let i = 1; i <= wVC; i += 1) {
+    indexVC = indexVC - 1 - i;
+    sVC.splice(indexVC, 0, ' ');
+    let rVC = sVC.join('');
+    vote_count = rVC;
+  }
+
+  //* Popularity: round and separation of thousandths
+
+  popularity = Math.round(popularity);
+  let xP = String(popularity);
+  let sP = xP.split('');
+  let indexP = xP.length - 1;
+  let wP = Math.floor(indexP / 3);
+  for (let i = 1; i <= wP; i += 1) {
+    indexP = indexP - 1 - i;
+    sP.splice(indexP, 0, ' ');
+    let rP = sP.join('');
+    popularity = rP;
+  }
+
+  //* Add class
 
   const dataWLS = load('watched');
   const dataQLS = load('queue');
@@ -124,9 +156,9 @@ function cardTemplateModal({
     <ul class="list-description">
       <li class="title-type title-type--height">
         <span class="span-color">${vote_average.toFixed(1)}</span> /
-        <span class="span-nocolor">${vote_count.toFixed(0)}</span>
+        <span class="span-nocolor">${vote_count}</span>
       </li>
-      <li class="title-type title-type--height">${popularity.toFixed(0)}</li>
+      <li class="title-type title-type--height">${popularity}</li>
       <li class="title-type title-type--upper">${original_title}</li>
       <li class="title-type">${movieGenres}</li>
     </ul>
