@@ -181,11 +181,15 @@ export async function onSubmitSearchForm(e) {
       gallery.innerHTML = '';
       renderCardMovieHome(response);
       searchForm.reset();
+      save('search', response.total_pages);
 
-      const paginationSearchForm = new Pagination(container, optionsSearch);
-      paginationSearchForm.on('afterMove', e => {
-        paginationSearch(e.page);
-      });
+      setTimeout(() => {
+        optionsSearch.totalItems = load('search');
+        const paginationSearchForm = new Pagination(container, optionsSearch);
+        paginationSearchForm.on('afterMove', e => {
+          paginationSearch(e.page);
+        });
+      }, 300);
     } else {
       return;
     }

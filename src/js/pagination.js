@@ -46,7 +46,7 @@ export let optionsHome = {
 const jsSearchPagin = document.querySelector('.js-search');
 
 export let optionsSearch = {
-  totalItems: 100,
+  //   totalItems: 100,
   itemsPerPage: 20,
   visiblePages: 5,
   page: 1,
