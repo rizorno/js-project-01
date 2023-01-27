@@ -26,7 +26,7 @@ const developers = [
     surnameDev: 'BUHAICHUK',
     photo: `${irynaUrl}`,
     roleDev: 'Scrum-master',
-    gitDev: 'https://github.com/Ira-Bughaichuk',
+    gitDev: 'https://github.com/#',
   },
   // 3
   {
@@ -34,7 +34,7 @@ const developers = [
     surnameDev: 'YEREP',
     photo: `${oksanaUrl}`,
     roleDev: 'Front-end Developer',
-    gitDev: 'https://github.com/Oksana-y',
+    gitDev: 'https://github.com/#',
   },
   // 4
   {
@@ -42,7 +42,7 @@ const developers = [
     surnameDev: 'CHUMAK',
     photo: `${viacheslavUrl}`,
     roleDev: 'Front-end Developer',
-    gitDev: 'https://github.com/xUNKINDx',
+    gitDev: 'https://github.com/#',
   },
   // 5
   {
@@ -50,7 +50,7 @@ const developers = [
     surnameDev: 'HUSAK',
     photo: `${oleksiiUrl}`,
     roleDev: 'Front-end Developer',
-    gitDev: 'https://github.com/Aleks7777777',
+    gitDev: 'https://github.com/#',
   },
   // 6
   {
@@ -58,7 +58,7 @@ const developers = [
     surnameDev: 'VASYLIEV',
     photo: `${sergiiUrl}`,
     roleDev: 'Front-end Developer',
-    gitDev: 'https://github.com/Vasiliev781410',
+    gitDev: 'https://github.com/#',
   },
   // 7
   {
@@ -66,7 +66,7 @@ const developers = [
     surnameDev: 'NALYVKIN',
     photo: `${bogdanUrl}`,
     roleDev: 'Front-end Developer',
-    gitDev: 'https://github.com/Bohdan00N',
+    gitDev: 'https://github.com/#',
   },
 ];
 
