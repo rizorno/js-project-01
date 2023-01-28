@@ -33,6 +33,25 @@ export class MovieAPI {
     }
   }
 
+  async fetchMovieTop(page) {
+    page = page || 1;
+    try {
+      Loading.pulse({
+        svgColor: 'orange',
+      });
+      const response = await axios.get(`${BASE_URL}/movie/top_rated`, {
+        params: {
+          api_key: API_KEY,
+          page: page,
+        },
+      });
+      Loading.remove();
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async fetchMovieKeyword(searchQuery, page) {
     page = page || 1;
 

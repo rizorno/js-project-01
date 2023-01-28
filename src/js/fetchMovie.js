@@ -2,7 +2,7 @@ import Pagination from 'tui-pagination';
 
 import { MovieAPI } from './movieAPI.js';
 import { del, load, save } from './LS.js';
-// import { genresData } from './genresData.js';
+// import { genresData } from './genresData.js'; // solution #2
 import { container } from './pagination.js';
 import { optionsHome } from './pagination.js';
 import { optionsSearch } from './pagination.js';
@@ -21,6 +21,9 @@ export const {
   errorServer,
   currentPageHome,
   currentPageLibrary,
+  boxBtnHome,
+  btnTrending,
+  btnTop,
   btnHeader,
   btnWatched,
   btnQueue,
@@ -29,6 +32,9 @@ export const {
   gallery: document.querySelector('.content__list'),
   inputValue: document.querySelector("[name='search']"),
   notSearchResult: document.querySelector('.text-hidden'),
+  boxBtnHome: document.querySelector('.box-btn-home'),
+  btnTrending: document.querySelector("[name='trending']"),
+  btnTop: document.querySelector("[name='top']"),
   errorServer: document.querySelector('.error-server'),
   currentPageHome: document.querySelector("[name='home']"),
   currentPageLibrary: document.querySelector("[name='library']"),
@@ -97,6 +103,8 @@ checkCurrentPage();
 export function checkCurrentPage() {
   if (currentPageHome.classList.contains('current-home') === true) {
     onStartPage();
+    boxBtnHome.addEventListener('click', resultsBtns);
+    btnTrending.classList.add('js-btn-home');
     searchForm.addEventListener('submit', onSubmitSearchForm);
     return;
   } else if (currentPageLibrary.classList.contains('current') === true) {
@@ -119,6 +127,7 @@ export async function onStartPage() {
     }
     if (response['total_results'] > 0) {
       save('genres', [responseGenres.genres]); // solution #2 : not use
+      notSearchResult.classList.add('is-hidden-text');
       gallery.innerHTML = '';
       renderCardMovieHome(response);
       searchForm.reset();
@@ -143,6 +152,84 @@ export async function paginationStartPage(page) {
   page = page || 1;
 
   const response = await movieApi.fetchMovieTrending(page);
+
+  try {
+    if (response['total_results'] > 0) {
+      gallery.innerHTML = '';
+      renderCardMovieHome(response);
+    } else {
+      return;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+//? When click buttons 'Trending' and 'Top' on the page 'Home'
+
+function resultsBtns(e) {
+  if (
+    (e.target.innerHTML === 'Trending' &&
+      btnTrending.classList.contains('js-btn-home') === true) ||
+    (e.target.innerHTML === 'Top rated' &&
+      btnTop.classList.contains('js-btn-home') === true)
+  ) {
+    return;
+  }
+
+  if (
+    e.target.innerHTML === 'Trending' &&
+    btnTrending.classList.contains('js-btn-home') === false
+  ) {
+    onStartPage();
+    btnTrending.classList.add('js-btn-home');
+    btnTop.classList.remove('js-btn-home');
+  }
+
+  if (
+    e.target.innerHTML === 'Top rated' &&
+    btnTop.classList.contains('js-btn-home') === false
+  ) {
+    onStartPageTop();
+    btnTrending.classList.remove('js-btn-home');
+    btnTop.classList.add('js-btn-home');
+  }
+}
+
+async function onStartPageTop(page) {
+  const response = await movieApi.fetchMovieTop();
+
+  try {
+    if (response['total_results'] === 0) {
+      errorServer.classList.remove('is-hidden');
+      return;
+    }
+    if (response['total_results'] > 0) {
+      notSearchResult.classList.add('is-hidden-text');
+      gallery.innerHTML = '';
+      renderCardMovieHome(response);
+      searchForm.reset();
+
+      //* Pagination when loading the page
+
+      const paginationHome = new Pagination(container, optionsHome);
+      paginationHome.on('afterMove', e => {
+        paginationStartPageTop(e.page);
+      });
+    } else {
+      return;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+//? Pagination when click button 'Top': going to the next page
+
+export async function paginationStartPageTop(page) {
+  page = page || 1;
+
+  const response = await movieApi.fetchMovieTop(page);
 
   try {
     if (response['total_results'] > 0) {
