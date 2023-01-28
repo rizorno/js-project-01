@@ -9,76 +9,104 @@
 
   &-container {
     text-align: center;
+
+    @media screen and (min-width: $tablet) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   &__text {
-    max-width: 236px;
+    width: 236px;
 
     color: $color-grey;
 
     font-size: 14px;
     line-height: 1.143;
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-
+    display: block;
     margin: 0 auto;
 
-    &--span {
-      margin-top: 12px;
+    @media screen and (min-width: $tablet) {
+      width: auto;
 
-      &-goit {
-        //   text-decoration: underline;
-        cursor: pointer;
-        transition: color $transition;
+      margin: 0;
 
-        &:hover,
-        &:focus {
-          //  color: $color-orange;
-          transform: scale(1.4);
-        }
-      }
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     @media screen and (min-width: $tablet) {
-      width: 100%;
-
-      display: inline;
-
       font-size: 16px;
       line-height: 1.188;
     }
-  }
 
-  &__icon {
-    margin: 12px 10px 0;
+    &--span {
+      display: block;
+      margin-top: 12px;
 
-    @media screen and (min-width: $tablet) {
-      display: inline-flex;
-      align-items: center;
-      margin: 0 10px;
+      @media screen and (min-width: $tablet) {
+        display: flex;
+        margin-top: 0;
+        margin-left: 3px;
+      }
     }
   }
 }
 
+.box-logo-footer {
+  margin-top: 10px;
+
+  @media screen and (min-width: $tablet) {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 0;
+  }
+}
+
 .logo-team {
-  font-weight: 900;
-  font-size: 25px;
+  display: inline-flex;
+  align-items: center;
+
+  width: 80px;
 
   transition: transform $transition;
 
-  color: #5ab152;
-
   cursor: pointer;
+
+  @media screen and (min-width: $tablet) {
+    width: 100px;
+  }
 
   &:hover,
   &:focus {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
+}
 
-  &--w {
-    color: #1e70c0;
+.footer__icon {
+  display: inline-flex;
+  margin-right: 10px;
+
+  animation: opacityAnim linear 3000ms infinite;
+
+  @media screen and (min-width: $tablet) {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 20px;
+  }
+}
+
+@keyframes opacityAnim {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(2);
   }
 }

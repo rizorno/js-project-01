@@ -1,12 +1,8 @@
 import confetti from 'canvas-confetti';
 
 import mykhailoUrl from '../images/team/mykhailo.jpg';
-import irynaUrl from '../images/team/iryna.jpg';
-import viacheslavUrl from '../images/team/viacheslav.jpg';
-import oleksiiUrl from '../images/team/oleksii.jpg';
-import oksanaUrl from '../images/team/oksana.jpg';
-import sergiiUrl from '../images/team/sergii.jpg';
-import bogdanUrl from '../images/team/bogdan.jpg';
+import priscilliaUrl from '../images/team/priscillia.jpg';
+import valeryUrl from '../images/team/valery.jpg';
 
 import spriteUrl from '../images/icons.svg';
 
@@ -24,7 +20,7 @@ const developers = [
   {
     nameDev: 'Priscillia',
     surnameDev: 'DON A MENG',
-    photo: `${irynaUrl}`,
+    photo: `${priscilliaUrl}`,
     roleDev: 'Scrum-master',
     gitDev: 'https://github.com/#',
   },
@@ -32,42 +28,10 @@ const developers = [
   {
     nameDev: 'Valery',
     surnameDev: 'AMOUGOU',
-    photo: `${oksanaUrl}`,
+    photo: `${valeryUrl}`,
     roleDev: 'Front-end Developer',
     gitDev: 'https://github.com/#',
   },
-  // 4
-  //   {
-  //     nameDev: 'Viacheslav',
-  //     surnameDev: 'CHUMAK',
-  //     photo: `${viacheslavUrl}`,
-  //     roleDev: 'Front-end Developer',
-  //     gitDev: 'https://github.com/#',
-  //   },
-  // 5
-  //   {
-  //     nameDev: 'Oleksii',
-  //     surnameDev: 'HUSAK',
-  //     photo: `${oleksiiUrl}`,
-  //     roleDev: 'Front-end Developer',
-  //     gitDev: 'https://github.com/#',
-  //   },
-  // 6
-  //   {
-  //     nameDev: 'Sergii',
-  //     surnameDev: 'VASYLIEV',
-  //     photo: `${sergiiUrl}`,
-  //     roleDev: 'Front-end Developer',
-  //     gitDev: 'https://github.com/#',
-  //   },
-  // 7
-  //   {
-  //     nameDev: 'Bogdan',
-  //     surnameDev: 'NALYVKIN',
-  //     photo: `${bogdanUrl}`,
-  //     roleDev: 'Front-end Developer',
-  //     gitDev: 'https://github.com/#',
-  //   },
 ];
 
 //? Team's cards team for rendering
@@ -105,7 +69,7 @@ const markupModalTeam = `<div class="modal-team">
 
 //? Variables
 
-const btnOpenModalTeam = document.querySelector('.footer__text--span-goit');
+const btnOpenModalTeam = document.querySelector('.logo-team');
 const boxModalTeam = document.querySelector('.box-modal-team');
 const boxContent = document.querySelector('.box-content');
 
