@@ -22,52 +22,52 @@ const developers = [
   },
   // 2
   {
-    nameDev: 'Iryna',
-    surnameDev: 'BUHAICHUK',
+    nameDev: 'Priscillia',
+    surnameDev: 'DON A MENG',
     photo: `${irynaUrl}`,
     roleDev: 'Scrum-master',
     gitDev: 'https://github.com/#',
   },
   // 3
   {
-    nameDev: 'Oksana',
-    surnameDev: 'YEREP',
+    nameDev: 'Valery',
+    surnameDev: 'AMOUGOU',
     photo: `${oksanaUrl}`,
     roleDev: 'Front-end Developer',
     gitDev: 'https://github.com/#',
   },
   // 4
-  {
-    nameDev: 'Viacheslav',
-    surnameDev: 'CHUMAK',
-    photo: `${viacheslavUrl}`,
-    roleDev: 'Front-end Developer',
-    gitDev: 'https://github.com/#',
-  },
+  //   {
+  //     nameDev: 'Viacheslav',
+  //     surnameDev: 'CHUMAK',
+  //     photo: `${viacheslavUrl}`,
+  //     roleDev: 'Front-end Developer',
+  //     gitDev: 'https://github.com/#',
+  //   },
   // 5
-  {
-    nameDev: 'Oleksii',
-    surnameDev: 'HUSAK',
-    photo: `${oleksiiUrl}`,
-    roleDev: 'Front-end Developer',
-    gitDev: 'https://github.com/#',
-  },
+  //   {
+  //     nameDev: 'Oleksii',
+  //     surnameDev: 'HUSAK',
+  //     photo: `${oleksiiUrl}`,
+  //     roleDev: 'Front-end Developer',
+  //     gitDev: 'https://github.com/#',
+  //   },
   // 6
-  {
-    nameDev: 'Sergii',
-    surnameDev: 'VASYLIEV',
-    photo: `${sergiiUrl}`,
-    roleDev: 'Front-end Developer',
-    gitDev: 'https://github.com/#',
-  },
+  //   {
+  //     nameDev: 'Sergii',
+  //     surnameDev: 'VASYLIEV',
+  //     photo: `${sergiiUrl}`,
+  //     roleDev: 'Front-end Developer',
+  //     gitDev: 'https://github.com/#',
+  //   },
   // 7
-  {
-    nameDev: 'Bogdan',
-    surnameDev: 'NALYVKIN',
-    photo: `${bogdanUrl}`,
-    roleDev: 'Front-end Developer',
-    gitDev: 'https://github.com/#',
-  },
+  //   {
+  //     nameDev: 'Bogdan',
+  //     surnameDev: 'NALYVKIN',
+  //     photo: `${bogdanUrl}`,
+  //     roleDev: 'Front-end Developer',
+  //     gitDev: 'https://github.com/#',
+  //   },
 ];
 
 //? Team's cards team for rendering

@@ -131,23 +131,73 @@
 }
 
 .box-wrapper {
-  display: flex;
-  gap: 40px;
+  display: inline-grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(4, auto);
+  gap: 8px 40px;
+  grid-auto-flow: row;
+  align-items: flex-start;
+  grid-template-areas:
+    'a a1'
+    'b b1'
+    'c c1'
+    'd d1'
+    'e e1';
+  justify-content: start;
+  align-content: start;
+  justify-items: start;
+  align-items: start;
 
   margin-bottom: 20px;
 
-  @media screen and (min-width: $tablet) {
-    gap: 39px;
-  }
-
   @media screen and (min-width: $desktop) {
-    gap: 83px;
+    gap: 8px 83px;
   }
 }
 
-.title-name:not(:last-child),
-.title-type:not(:last-child) {
-  margin-bottom: 8px;
+.a {
+  grid-area: a;
+  width: 70px;
+}
+
+.b {
+  grid-area: b;
+  width: 70px;
+}
+
+.c {
+  grid-area: c;
+  width: 70px;
+}
+
+.d {
+  grid-area: d;
+  width: 70px;
+}
+
+.e {
+  grid-area: e;
+  width: 70px;
+}
+
+.a1 {
+  grid-area: a1;
+}
+
+.b1 {
+  grid-area: b1;
+}
+
+.c1 {
+  grid-area: c1;
+}
+
+.d1 {
+  grid-area: d1;
+}
+
+.e1 {
+  grid-area: e1;
 }
 
 .title-name {
@@ -157,13 +207,13 @@
 }
 
 .title-type {
-  font-size: 12px;
+  &--flex {
+    display: flex;
+    gap: 7px;
+  }
 
   &--height {
     line-height: 1.167;
-
-    display: flex;
-    gap: 3px;
   }
 
   &--upper {

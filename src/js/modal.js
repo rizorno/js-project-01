@@ -72,27 +72,13 @@ function cardTemplateModal({
   original_title,
   genres,
   genre_ids,
+  production_countries,
   overview,
   id,
   classJSW,
   classJSQ,
   classJSY,
 }) {
-  let movieGenres;
-
-  //* Genres
-
-  if (genres) {
-    movieGenres = genres.map(({ name }) => name).join(', ');
-  }
-
-  if (genre_ids) {
-    movieGenres = load('genres')[0] // solution #2 : genresData
-      .filter(({ id }) => genre_ids.includes(id))
-      .map(({ name }) => name)
-      .join(', ');
-  }
-
   //* Votes: round and separation of thousandths
 
   vote_count = Math.round(vote_count);
@@ -121,6 +107,29 @@ function cardTemplateModal({
     popularity = rP;
   }
 
+  //* Genres
+
+  let movieGenres;
+
+  if (genres) {
+    movieGenres = genres.map(({ name }) => name).join(', ');
+  }
+
+  if (genre_ids) {
+    movieGenres = load('genres')[0] // solution #2 : genresData
+      .filter(({ id }) => genre_ids.includes(id))
+      .map(({ name }) => name)
+      .join(', ');
+  }
+
+  //* Origin country
+
+  let originCountry;
+
+  if (production_countries) {
+    originCountry = production_countries.map(({ name }) => name).join(', ');
+  }
+
   //* Add class
 
   const dataWLS = load('watched');
@@ -138,31 +147,30 @@ function cardTemplateModal({
 
   return `<div>
   <img
-  class="content__img--modal"
-  src="https://image.tmdb.org/t/p/original${poster_path}"
-  alt="${title}"
-/></div>
+    class="content__img--modal"
+    src="https://image.tmdb.org/t/p/original${poster_path}"
+    alt="${title}"
+  />
+</div>
 <div>
   <h1 class="modal__title">${title}</h1>
 
   <div class="box-wrapper">
-    <ul class="list-name">
-      <li class="title-name">Vote / Votes</li>
-      <li class="title-name">Popularity</li>
-      <li class="title-name">Original Title</li>
-      <li class="title-name">Genre</li>
-    </ul>
+  <p class="title-name a">Vote / Votes</p>
+  <p class="title-name b">Popularity</p>
+  <p class="title-name c">Original Title</p>
+  <p class="title-name d">Genre</p>
+  <p class="title-name e">Country</p>
 
-    <ul class="list-description">
-      <li class="title-type title-type--height">
-        <span class="span-color">${vote_average.toFixed(1)}</span> /
-        <span class="span-nocolor">${vote_count}</span>
-      </li>
-      <li class="title-type title-type--height">${popularity}</li>
-      <li class="title-type title-type--upper">${original_title}</li>
-      <li class="title-type">${movieGenres}</li>
-    </ul>
-  </div>
+  <p class="title-type title-type--flex a1">
+    <span class="span-color">${vote_average.toFixed(1)}</span> /
+    <span class="span-nocolor">${vote_count}</span>
+  </p>
+  <p class="title-type title-type--height b1">${popularity}</p>
+  <p class="title-type title-type--upper c1">${original_title}</p>
+  <p class="title-type d1">${movieGenres}</p>
+  <p class="title-type e1">${originCountry}</p>
+</div>
 
   <p class="modal__about">About</p>
   <p class="modal__text">${overview}</p>
@@ -171,10 +179,11 @@ function cardTemplateModal({
     <button class="modal-btn js-w ${classJSW}">Watched</button>
     <button class="modal-btn js-q ${classJSQ}">Queue</button>
   </div>
-  <button class="modal-btn modal-btn--youtub js-y ${classJSY}"><svg class="btn-close__icon" width="30" height="30">
-        <use href="${spriteUrl}#icon-youtub"></use>
-      </svg>YouTub
-    </button>
+  <button class="modal-btn modal-btn--youtub js-y ${classJSY}">
+    <svg class="btn-close__icon" width="30" height="30">
+      <use href="${spriteUrl}#icon-youtub"></use></svg
+    >YouTub
+  </button>
 </div>`;
 }
 
