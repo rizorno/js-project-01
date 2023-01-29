@@ -127,6 +127,7 @@ export async function onStartPage() {
     }
     if (response['total_results'] > 0) {
       save('genres', [responseGenres.genres]); // solution #2 : not use
+      container.classList.remove('is-hidden');
       notSearchResult.classList.add('is-hidden-text');
       gallery.innerHTML = '';
       renderCardMovieHome(response);
@@ -205,6 +206,7 @@ async function onStartPageTop(page) {
       return;
     }
     if (response['total_results'] > 0) {
+      container.classList.remove('is-hidden');
       notSearchResult.classList.add('is-hidden-text');
       gallery.innerHTML = '';
       renderCardMovieHome(response);
@@ -260,11 +262,19 @@ export async function onSubmitSearchForm(e) {
   try {
     if (response['total_results'] === 0) {
       notSearchResult.classList.remove('is-hidden-text');
+      gallery.innerHTML = '';
+      btnTrending.classList.remove('js-btn-home');
+      btnTop.classList.remove('js-btn-home');
+      container.classList.add('is-hidden');
+      del('search');
       return;
     }
     if (response['total_results'] > 0) {
       save('search', response.total_pages);
-      notSearchResult.classList.add('is-hidden-text');
+      notSearchResult.classList.remove('is-hidden-text');
+      container.classList.remove('is-hidden');
+      btnTrending.classList.add('js-btn-home');
+      btnTop.classList.remove('js-btn-home');
       gallery.innerHTML = '';
       renderCardMovieHome(response);
       searchForm.reset();
