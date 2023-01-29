@@ -157,10 +157,12 @@ function paginationOnPage() {
         Boolean(load('watched').length) === undefined ||
         load('watched').length === 0
       ) {
+        container.classList.add('is-hidden');
         return;
       } else if (
         !btnWatched.classList.contains('js-btn-header') &&
-        Boolean(load('queue')) === true
+        Boolean(load('queue')) === true &&
+        load('watched').length > 0
       ) {
         container.classList.remove('is-hidden');
         const paginationLibrary = new Pagination(
@@ -171,9 +173,9 @@ function paginationOnPage() {
           paginLibraryW(e.page);
         });
       } else if (
-        (btnWatched.classList.contains('js-btn-header') &&
+        (!btnWatched.classList.contains('js-btn-header') &&
           Boolean(load('watched')) === false) ||
-        (btnWatched.classList.contains('js-btn-header') &&
+        (!btnWatched.classList.contains('js-btn-header') &&
           load('watched').length === 0)
       ) {
         container.classList.remove('is-hidden');
@@ -189,10 +191,12 @@ function paginationOnPage() {
         Boolean(load('queue').length) === undefined ||
         load('queue').length === 0
       ) {
+        container.classList.add('is-hidden');
         return;
       } else if (
         !btnQueue.classList.contains('js-btn-header') &&
-        Boolean(load('watched')) === true
+        Boolean(load('watched')) === true &&
+        load('queue').length > 0
       ) {
         container.classList.remove('is-hidden');
         const paginationLibrary = new Pagination(
@@ -207,7 +211,9 @@ function paginationOnPage() {
         (!btnQueue.classList.contains('js-btn-header') &&
           Boolean(load('queue')) === false) ||
         (!btnQueue.classList.contains('js-btn-header') &&
-          Boolean(load('watched').length) === undefined)
+          Boolean(load('queue').length) === false) ||
+        (!btnQueue.classList.contains('js-btn-header') &&
+          load('queue').length === 0)
       ) {
         container.classList.remove('is-hidden');
         return;

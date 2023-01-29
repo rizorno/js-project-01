@@ -271,7 +271,7 @@ export async function onSubmitSearchForm(e) {
     }
     if (response['total_results'] > 0) {
       save('search', response.total_pages);
-      notSearchResult.classList.remove('is-hidden-text');
+      notSearchResult.classList.add('is-hidden-text');
       container.classList.remove('is-hidden');
       btnTrending.classList.add('js-btn-home');
       btnTop.classList.remove('js-btn-home');
