@@ -299,11 +299,13 @@ function modalBtnClass(e) {
     if (e.target.classList.contains('js-w')) {
       e.target.classList.add('js-btn');
       saveWatchedToLS();
+      e.target.innerHTML = 'Remouve from Watched';
       return;
     }
     if (e.target.classList.contains('js-q')) {
       e.target.classList.add('js-btn');
       saveQueueToLS();
+      e.target.innerHTML = 'Remouve from Queue';
       return;
     }
     return;
@@ -313,11 +315,13 @@ function modalBtnClass(e) {
     if (e.target.classList.contains('js-w')) {
       e.target.classList.remove('js-btn');
       removeWatchedFromLS();
+      e.target.innerHTML = 'Watched';
       return;
     }
     if (e.target.classList.contains('js-q')) {
       e.target.classList.remove('js-btn');
       removeQueueFromLS();
+      e.target.innerHTML = 'Queue';
       return;
     }
     return;
