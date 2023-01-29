@@ -78,6 +78,8 @@ function cardTemplateModal({
   classJSW,
   classJSQ,
   classJSY,
+  textJSW,
+  textJSQ,
 }) {
   //* Votes: round and separation of thousandths
 
@@ -134,15 +136,19 @@ function cardTemplateModal({
 
   const dataWLS = load('watched');
   const dataQLS = load('queue');
+  textJSW = 'Watched';
+  textJSQ = 'Queue';
 
   if (Boolean(dataWLS) === false) {
   } else if (dataWLS.some(w => w.id === Number(movieID))) {
     classJSW = 'js-btn';
+    textJSW = 'Remove from Watched';
   }
 
   if (Boolean(dataQLS) === false) {
   } else if (dataQLS.some(w => w.id === Number(movieID))) {
     classJSQ = 'js-btn';
+    textJSQ = 'Remove from Queue';
   }
 
   return `<div>
@@ -176,8 +182,8 @@ function cardTemplateModal({
   <p class="modal__text">${overview}</p>
 
   <div class="modal-box-btn">
-    <button class="modal-btn js-w ${classJSW}">Watched</button>
-    <button class="modal-btn js-q ${classJSQ}">Queue</button>
+    <button class="modal-btn js-w ${classJSW}">${textJSW}</button>
+    <button class="modal-btn js-q ${classJSQ}">${textJSQ}</button>
   </div>
   <button class="modal-btn modal-btn--youtub js-y ${classJSY}">
     <svg class="btn-close__icon" width="30" height="30">
