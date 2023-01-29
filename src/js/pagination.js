@@ -119,25 +119,28 @@ function paginationOnPage() {
     if (
       (Boolean(load('watched')) === false &&
         Boolean(load('queue')) === false) ||
-      (load('watched') === undefined && load('queue') === undefined)
+      (load('watched') === undefined && load('queue') === undefined) ||
+      (load('watched').length === 0 && load('queue').length === 0)
     ) {
-      del('watched');
-      del('queue');
+      container.classList.add('is-hidden');
       return;
     } else if (
-      Boolean(load('watched')) === true &&
-      load('queue') === undefined
+      (Boolean(load('watched')) === true && load('queue') === undefined) ||
+      (load('watched') === true && load('queue').length === 0)
     ) {
+      container.classList.remove('is-hidden');
       params = optionsLibraryWatched;
     } else if (
-      load('watched') === undefined &&
-      Boolean(load('queue')) === true
+      (load('watched') === undefined && Boolean(load('queue')) === true) ||
+      (load('watched').length === 0 && load('queue') === true)
     ) {
+      container.classList.remove('is-hidden');
       params = optionsLibraryQueue;
     } else if (
-      Boolean(load('watched')) === true &&
-      Boolean(load('queue')) === true
+      (Boolean(load('watched')) === true && Boolean(load('queue')) === true) ||
+      (load('watched') === true && load('watched').length === 0)
     ) {
+      container.classList.remove('is-hidden');
       params = optionsLibraryWatched;
     }
 
@@ -149,13 +152,17 @@ function paginationOnPage() {
     // with the button 'Watched'
 
     btnWatched.addEventListener('click', () => {
-      if (load('watched') === undefined) {
-        del('watched');
+      if (
+        load('watched') === undefined ||
+        Boolean(load('watched').length) === undefined ||
+        load('watched').length === 0
+      ) {
         return;
       } else if (
         !btnWatched.classList.contains('js-btn-header') &&
-        Boolean(load('watched')) === true
+        Boolean(load('queue')) === true
       ) {
+        container.classList.remove('is-hidden');
         const paginationLibrary = new Pagination(
           container,
           optionsLibraryWatched
@@ -164,10 +171,12 @@ function paginationOnPage() {
           paginLibraryW(e.page);
         });
       } else if (
-        btnWatched.classList.contains('js-btn-header') &&
-        Boolean(load('watched')) === false
+        (btnWatched.classList.contains('js-btn-header') &&
+          Boolean(load('watched')) === false) ||
+        (btnWatched.classList.contains('js-btn-header') &&
+          load('watched').length === 0)
       ) {
-        del('watched');
+        container.classList.remove('is-hidden');
         return;
       }
     });
@@ -175,12 +184,17 @@ function paginationOnPage() {
     // with the button 'Queue'
 
     btnQueue.addEventListener('click', () => {
-      if (load('queue') === undefined) {
-        del('queue');
+      if (
+        load('queue') === undefined ||
+        Boolean(load('queue').length) === undefined ||
+        load('queue').length === 0
+      ) {
+        return;
       } else if (
         !btnQueue.classList.contains('js-btn-header') &&
         Boolean(load('watched')) === true
       ) {
+        container.classList.remove('is-hidden');
         const paginationLibrary = new Pagination(
           container,
           optionsLibraryQueue
@@ -190,10 +204,12 @@ function paginationOnPage() {
         });
       }
       if (
-        !btnQueue.classList.contains('js-btn-header') &&
-        Boolean(load('queue')) === false
+        (!btnQueue.classList.contains('js-btn-header') &&
+          Boolean(load('queue')) === false) ||
+        (!btnQueue.classList.contains('js-btn-header') &&
+          Boolean(load('watched').length) === undefined)
       ) {
-        del('queue');
+        container.classList.remove('is-hidden');
         return;
       }
     });

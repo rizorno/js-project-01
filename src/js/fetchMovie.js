@@ -330,19 +330,21 @@ export function onLibraryPage(page) {
   let start = movieOnPage * (page - 1);
   let end = page * movieOnPage;
 
-  if (load('watched') === undefined && load('queue') === undefined) {
-    del('watched');
-    del('queue');
+  if (
+    (load('watched') === undefined && load('queue') === undefined) ||
+    (load('watched').length === 0 && load('queue').length === 0)
+  ) {
+    return;
   } else if (
-    Boolean(load('watched')) === false &&
-    Boolean(load('queue')) === true
+    (Boolean(load('watched')) === false && Boolean(load('queue')) === true) ||
+    (load('watched').length === 0 && Boolean(load('queue')) === true)
   ) {
     btnQueue.classList.add('js-btn-header');
     gallery.innerHTML = '';
     renderCardMovieLibrary(load('queue').slice(start, end));
   } else if (
-    Boolean(load('watched')) === true &&
-    Boolean(load('queue')) === false
+    (Boolean(load('watched')) === true && Boolean(load('queue')) === false) ||
+    (Boolean(load('watched')) === true && load('queue').length === 0)
   ) {
     btnWatched.classList.add('js-btn-header');
     gallery.innerHTML = '';
