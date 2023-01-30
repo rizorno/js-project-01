@@ -256,7 +256,7 @@ export async function onSubmitSearchForm(e) {
   if (searchQuery === '') {
     return;
   }
-
+  btnTrending.classList.remove('js-btn-home');
   const response = await movieApi.fetchMovieKeyword(searchQuery);
 
   try {
@@ -273,7 +273,7 @@ export async function onSubmitSearchForm(e) {
       save('search', response.total_pages);
       notSearchResult.classList.add('is-hidden-text');
       container.classList.remove('is-hidden');
-      btnTrending.classList.add('js-btn-home');
+      // btnTrending.classList.add('js-btn-home');
       btnTop.classList.remove('js-btn-home');
       gallery.innerHTML = '';
       renderCardMovieHome(response);
@@ -282,12 +282,13 @@ export async function onSubmitSearchForm(e) {
       //* Pagination when loading results
 
       setTimeout(() => {
-        optionsSearch.totalItems = load('search');
+        optionsSearch.totalItems =
+          load('search') < 5 ? load('search') : (load('search') * 100) / 5; // 5 pages for each 100
         const paginationSearchForm = new Pagination(container, optionsSearch);
         paginationSearchForm.on('afterMove', e => {
           paginationSearch(e.page);
         });
-      }, 300);
+      }, 0);
     } else {
       return;
     }
@@ -302,10 +303,14 @@ export async function onSubmitSearchForm(e) {
 export async function paginationSearch(page) {
   page = page || 1;
 
-  const response = await movieApi.fetchMovieKeyword(searchQuery, page);
-
   try {
     if (response['total_results'] > 0) {
+      if (page <= load('search')) {
+        const response = await movieApi.fetchMovieKeyword(searchQuery, page);
+      } else {
+        return;
+      }
+
       gallery.innerHTML = '';
       renderCardMovieHome(response);
     } else {

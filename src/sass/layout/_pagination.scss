@@ -65,12 +65,12 @@
 
     .tui-last,
     .tui-first {
-      display: none;
+      // display: none;
     }
   }
 }
 //darkmode
-body.dark__theme #pagination {
+body #pagination {
   .tui-page-btn:hover,
   .tui-page-btn:focus {
     background-color: #9d9c9c38;
@@ -78,7 +78,7 @@ body.dark__theme #pagination {
   }
   .tui-next,
   .tui-prev {
-    background-color: rgb(198, 198, 198);
+    background-color: rgba(198, 198, 198, 0.2);
   }
   a {
     color: $color-grey;

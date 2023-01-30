@@ -13,7 +13,7 @@ export const container = document.getElementById('pagination');
 //? Options for the starting on the page 'Home'
 
 export let optionsHome = {
-  totalItems: 1000, // Total number of items
+  totalItems: 1000 * 20, // Total number of items // 50 pages for each 1000
   itemsPerPage: 20, // Number of items to draw per page
   visiblePages: 5, // Number of pages to display
   page: 1, // Current page to display
@@ -21,7 +21,7 @@ export let optionsHome = {
   usageStatistics: false, // Not send the hostname to google analytics.
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
-  //   template: {
+  //  template: {
   //     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
   //     currentPage:
   //       '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
