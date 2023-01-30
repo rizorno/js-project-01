@@ -303,14 +303,10 @@ export async function onSubmitSearchForm(e) {
 export async function paginationSearch(page) {
   page = page || 1;
 
+  const response = await movieApi.fetchMovieKeyword(searchQuery, page);
+
   try {
     if (response['total_results'] > 0) {
-      if (page <= load('search')) {
-        const response = await movieApi.fetchMovieKeyword(searchQuery, page);
-      } else {
-        return;
-      }
-
       gallery.innerHTML = '';
       renderCardMovieHome(response);
     } else {
