@@ -75,6 +75,7 @@ function cardTemplateModal({
   production_countries,
   overview,
   id,
+  release_date,
   classJSW,
   classJSQ,
   classJSY,
@@ -167,15 +168,18 @@ function cardTemplateModal({
   <p class="title-name c">Original Title</p>
   <p class="title-name d">Genre</p>
   <p class="title-name e">Country</p>
+   <p class="title-name f">Year</p>
 
   <p class="title-type title-type--flex a1">
     <span class="span-color">${vote_average.toFixed(1)}</span> /
     <span class="span-nocolor">${vote_count}</span>
   </p>
   <p class="title-type title-type--height b1">${popularity}</p>
+
   <p class="title-type title-type--upper c1">${original_title}</p>
   <p class="title-type d1">${movieGenres}</p>
   <p class="title-type e1">${originCountry}</p>
+    <p class="title-type title-type--height f1">${release_date.slice(0, 4)}</p>
 </div>
 
   <p class="modal__about">About</p>

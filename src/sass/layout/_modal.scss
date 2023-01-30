@@ -142,7 +142,8 @@
     'b b1'
     'c c1'
     'd d1'
-    'e e1';
+    'e e1'
+    'f f1';
   justify-content: start;
   align-content: start;
   justify-items: start;
@@ -180,6 +181,11 @@
   width: 70px;
 }
 
+.f {
+  grid-area: f;
+  width: 70px;
+}
+
 .a1 {
   grid-area: a1;
 }
@@ -198,6 +204,10 @@
 
 .e1 {
   grid-area: e1;
+}
+
+.f1 {
+  grid-area: f1;
 }
 
 .title-name {
